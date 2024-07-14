@@ -43,7 +43,8 @@ class TempState extends State<TemperatureApp> {
       ),
       textAlign: TextAlign.center,
       style: TextStyle(
-        fontSize: 24,
+        fontSize: 40,
+
       ),
     );
 
@@ -136,7 +137,7 @@ class TempState extends State<TemperatureApp> {
       body: OrientationBuilder(
         builder: (context, orientation) {
           return Container(
-            color: Colors.brown,
+            color: Colors.grey,
             padding: EdgeInsets.all(16.0),
             child: orientation == Orientation.portrait
                 ? Column(
@@ -151,6 +152,14 @@ class TempState extends State<TemperatureApp> {
                 Expanded(child: inputField),
                 Expanded(child: tempSwitch),
                 Expanded(child: calcBtn),
+                Text(
+                  "${CelciusOrFahreneit == false ? "Fahrenheit" : "Celsius"}",
+                  style: TextStyle(
+                    fontSize: 44,
+                    color: Colors.black12,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ],
             ),
           );
