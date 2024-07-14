@@ -6,8 +6,10 @@ class TemperatureConverter extends StatelessWidget {
   @override
   build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
+        fontFamily: 'Poppins',
       ),
       home: TempApp(),
     );
@@ -40,10 +42,13 @@ class TempState extends State<TempApp> {
         "${CelciusOrFahreneit == false ? "Fahrenheit" : "Celsius"}",
       ),
       textAlign: TextAlign.center,
+      style: TextStyle(
+        fontSize: 24,
+      ),
     );
 
     AppBar appBar = AppBar(
-      title: Text("Temperature Converter Program",
+      title: Text("Temperature Converter",
         style: TextStyle(
           fontFamily: "Poppins",
           fontSize: 24,
@@ -88,7 +93,7 @@ class TempState extends State<TempApp> {
       child: ElevatedButton(
         child: Text("Convert",
         style: TextStyle(
-          fontSize: 18,
+          fontSize: 19,
         ),
         ),
         onPressed: () {
@@ -117,6 +122,7 @@ class TempState extends State<TempApp> {
     return Scaffold(
       appBar: appBar,
       body: OrientationBuilder(
+        color: colors
         builder: (context, orientation) {
           return Container(
             padding: EdgeInsets.all(16.0),
