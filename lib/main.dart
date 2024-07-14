@@ -37,7 +37,7 @@ class TempState extends State<TempApp> {
       },
       decoration: InputDecoration(
         labelText:
-        "Input a Value in ${CelciusOrFahreneit == false ? "Fahrenheit" : "Celsius"}",
+        "${CelciusOrFahreneit == false ? "Fahrenheit" : "Celsius"}",
       ),
       textAlign: TextAlign.center,
     );
@@ -45,8 +45,10 @@ class TempState extends State<TempApp> {
     AppBar appBar = AppBar(
       title: Text("Temperature Converter Program",
       style: TextStyle(
-        fontFamily: "Roboto",
+        fontFamily: "Poppins",
         fontSize: 24,
+        color: Colors.white70,
+        fontWeight: FontWeight.bold,
       ),
       ),
       centerTitle: true,
