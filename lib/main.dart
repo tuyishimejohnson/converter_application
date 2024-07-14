@@ -43,9 +43,14 @@ class TempState extends State<TempApp> {
     );
 
     AppBar appBar = AppBar(
-      title: Text("Temperature Converter Program"),
+      title: Text("Temperature Converter Program",
+      style: TextStyle(
+        fontFamily: "Roboto",
+        fontSize: 24,
+      ),
+      ),
       centerTitle: true,
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.grey[500],
     );
 
     Container tempSwitch = Container(
