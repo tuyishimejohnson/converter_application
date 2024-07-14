@@ -1,42 +1,120 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-        title: Text("Temperature Converter Application"),
-        centerTitle: true,
-        backgroundColor: Colors.green[500],
+void main() => runApp(TemperatureConverter());
+
+class TemperatureConverter extends StatelessWidget {
+  @override
+  build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.green,
       ),
-      body: Center(
+      home: TempApp(),
+    );
+  }
+}
+
+class TempApp extends StatefulWidget {
+  @override
+  TempState createState() => TempState();
+}
+
+class TempState extends State<TempApp> {
+  double input = 0.0;
+  double output = 0.0;
+  bool CelciusOrFahreneit = true;
+
+  @override
+  Widget build(BuildContext context) {
+    TextField inputField = TextField(
+      keyboardType: TextInputType.number,
+      onChanged: (str) {
+        try {
+          input = double.parse(str);
+        } catch (e) {
+          input = 0.0;
+        }
+      },
+      decoration: InputDecoration(
+        labelText:
+        "Input a Value in ${CelciusOrFahreneit == false ? "Fahrenheit" : "Celsius"}",
+      ),
+      textAlign: TextAlign.center,
+    );
+
+    AppBar appBar = AppBar(
+      title: Text("Temperature Converter Program"),
+      centerTitle: true,
+      backgroundColor: Colors.grey[300],
+    );
+
+    Container tempSwitch = Container(
+      padding: EdgeInsets.all(15.0),
+      child: Row(
+        children: <Widget>[
+          Text("F"),
+          Radio<bool>(
+            groupValue: CelciusOrFahreneit,
+            value: false,
+            onChanged: (v) {
+              setState(() {
+                CelciusOrFahreneit = v!;
+              });
+            },
+          ),
+          Text("C"),
+          Radio<bool>(
+            groupValue: CelciusOrFahreneit,
+            value: true,
+            onChanged: (v) {
+              setState(() {
+                CelciusOrFahreneit = v!;
+              });
+            },
+          ),
+        ],
+      ),
+    );
+
+    Container calcBtn = Container(
+      child: ElevatedButton(
+        child: Text("Calculate"),
+        onPressed: () {
+          setState(() {
+            CelciusOrFahreneit == false
+                ? output = (input - 32) * (5 / 9)
+                : output = (input * 9 / 5) + 32;
+          });
+          AlertDialog dialog = AlertDialog(
+            content: CelciusOrFahreneit == false
+                ? Text(
+                "${input.toStringAsFixed(2)} F : ${output.toStringAsFixed(2)} C")
+                : Text(
+                "${input.toStringAsFixed(2)} C : ${output.toStringAsFixed(2)} F"),
+          );
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return dialog;
+            },
+          );
+        },
+      ),
+    );
+
+    return Scaffold(
+      appBar: appBar,
+      body: Container(
+        padding: EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Select Celsius or Fahrenheit",
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 20.0), // Add some space between the text and buttons
-            ElevatedButton(
-              onPressed: () {
-                // Add your onPressed code here!
-              },
-              child: Text("Button 1"),
-            ),
-            SizedBox(height: 10.0), // Add some space between the buttons
-            ElevatedButton(
-              onPressed: () {
-                // Add your onPressed code here!
-              },
-              child: Text("Button 2"),
-            ),
+          children: <Widget>[
+            inputField,
+            tempSwitch,
+            calcBtn,
           ],
         ),
       ),
-    ),
-  ));
+    );
+  }
 }
 
