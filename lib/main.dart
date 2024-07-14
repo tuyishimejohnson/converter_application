@@ -44,20 +44,21 @@ class TempState extends State<TempApp> {
 
     AppBar appBar = AppBar(
       title: Text("Temperature Converter Program",
-      style: TextStyle(
-        fontFamily: "Poppins",
-        fontSize: 24,
-        color: Colors.white70,
-        fontWeight: FontWeight.bold,
-      ),
+        style: TextStyle(
+          fontFamily: "Poppins",
+          fontSize: 24,
+          color: Colors.white70,
+          fontWeight: FontWeight.bold,
+        ),
       ),
       centerTitle: true,
-      backgroundColor: Colors.grey[500],
+      backgroundColor: Colors.green[500],
     );
 
     Container tempSwitch = Container(
       padding: EdgeInsets.all(15.0),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text("F"),
           Radio<bool>(
@@ -85,7 +86,11 @@ class TempState extends State<TempApp> {
 
     Container calcBtn = Container(
       child: ElevatedButton(
-        child: Text("Calculate"),
+        child: Text("Convert",
+        style: TextStyle(
+          fontSize: 18,
+        ),
+        ),
         onPressed: () {
           setState(() {
             CelciusOrFahreneit == false
@@ -111,17 +116,28 @@ class TempState extends State<TempApp> {
 
     return Scaffold(
       appBar: appBar,
-      body: Container(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          children: <Widget>[
-            inputField,
-            tempSwitch,
-            calcBtn,
-          ],
-        ),
+      body: OrientationBuilder(
+        builder: (context, orientation) {
+          return Container(
+            padding: EdgeInsets.all(16.0),
+            child: orientation == Orientation.portrait
+                ? Column(
+              children: <Widget>[
+                inputField,
+                tempSwitch,
+                calcBtn,
+              ],
+            )
+                : Row(
+              children: <Widget>[
+                Expanded(child: inputField),
+                Expanded(child: tempSwitch),
+                Expanded(child: calcBtn),
+              ],
+            ),
+          );
+        },
       ),
     );
   }
 }
-
