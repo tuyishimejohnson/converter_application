@@ -41,10 +41,9 @@ class TempState extends State<TemperatureApp> {
         labelText:
         "${CelciusOrFahreneit == false ? "Fahrenheit" : "Celsius"}",
       ),
-      textAlign: TextAlign.center,
+      textAlign: TextAlign.start,
       style: TextStyle(
         fontSize: 24,
-
       ),
     );
 
@@ -64,7 +63,7 @@ class TempState extends State<TemperatureApp> {
     Container tempSwitch = Container(
       padding: EdgeInsets.all(15.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Text("F",
             style: TextStyle(
