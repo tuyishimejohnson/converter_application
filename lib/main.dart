@@ -65,7 +65,13 @@ class TempState extends State<TemperatureApp> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text("F"),
+          Text("F",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           Radio<bool>(
             groupValue: CelciusOrFahreneit,
             value: false,
@@ -75,7 +81,13 @@ class TempState extends State<TemperatureApp> {
               });
             },
           ),
-          Text("C"),
+          Text("C",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
+          ),
           Radio<bool>(
             groupValue: CelciusOrFahreneit,
             value: true,
