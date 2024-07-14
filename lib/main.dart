@@ -43,7 +43,7 @@ class TempState extends State<TemperatureApp> {
       ),
       textAlign: TextAlign.center,
       style: TextStyle(
-        fontSize: 40,
+        fontSize: 24,
 
       ),
     );
@@ -152,14 +152,6 @@ class TempState extends State<TemperatureApp> {
                 Expanded(child: inputField),
                 Expanded(child: tempSwitch),
                 Expanded(child: calcBtn),
-                Text(
-                  "${CelciusOrFahreneit == false ? "Fahrenheit" : "Celsius"}",
-                  style: TextStyle(
-                    fontSize: 44,
-                    color: Colors.black12,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
               ],
             ),
           );
