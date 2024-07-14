@@ -11,17 +11,17 @@ class TemperatureConverter extends StatelessWidget {
         primarySwatch: Colors.green,
         fontFamily: 'Poppins',
       ),
-      home: TempApp(),
+      home: TemperatureApp(),
     );
   }
 }
 
-class TempApp extends StatefulWidget {
+class TemperatureApp extends StatefulWidget {
   @override
   TempState createState() => TempState();
 }
 
-class TempState extends State<TempApp> {
+class TempState extends State<TemperatureApp> {
   double input = 0.0;
   double output = 0.0;
   bool CelciusOrFahreneit = true;
@@ -122,9 +122,9 @@ class TempState extends State<TempApp> {
     return Scaffold(
       appBar: appBar,
       body: OrientationBuilder(
-        color: colors
         builder: (context, orientation) {
           return Container(
+            color: Colors.brown,
             padding: EdgeInsets.all(16.0),
             child: orientation == Orientation.portrait
                 ? Column(
