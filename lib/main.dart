@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // A program that is used to convert temperature
 // specifically Fahrenheit and Celcius.
+
 void main() => runApp(TemperatureConverter());
 
 class TemperatureConverter extends StatelessWidget {
@@ -76,6 +77,7 @@ class TempState extends State<TemperatureApp> {
           Radio<bool>(
             groupValue: CelciusOrFahreneit,
             value: false,
+            activeColor: Colors.white,
             onChanged: (v) {
               setState(() {
                 CelciusOrFahreneit = v!;
@@ -92,6 +94,7 @@ class TempState extends State<TemperatureApp> {
           Radio<bool>(
             groupValue: CelciusOrFahreneit,
             value: true,
+            activeColor: Colors.white,
             onChanged: (v) {
               setState(() {
                 CelciusOrFahreneit = v!;
