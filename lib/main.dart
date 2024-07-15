@@ -67,11 +67,11 @@ class TempState extends State<TemperatureApp> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Text("Fahrenheit",
+          Text("Fahreneit",
             style: TextStyle(
               color: Colors.white,
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              fontWeight: FontWeight.normal,
             ),
           ),
           Radio<bool>(
@@ -87,8 +87,8 @@ class TempState extends State<TemperatureApp> {
           Text("Celcius",
           style: TextStyle(
             color: Colors.white,
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
+            fontSize: 20,
+            fontWeight: FontWeight.normal,
           ),
           ),
           Radio<bool>(
