@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+// A program that is used to convert temperature
+// specifically Fahrenheit and Celcius.
 void main() => runApp(TemperatureConverter());
 
 class TemperatureConverter extends StatelessWidget {
@@ -65,7 +66,7 @@ class TempState extends State<TemperatureApp> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Text("F",
+          Text("Fahrenheit",
             style: TextStyle(
               color: Colors.white,
               fontSize: 22,
@@ -81,7 +82,7 @@ class TempState extends State<TemperatureApp> {
               });
             },
           ),
-          Text("C",
+          Text("Celcius",
           style: TextStyle(
             color: Colors.white,
             fontSize: 22,
