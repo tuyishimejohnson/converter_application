@@ -62,6 +62,8 @@ class TempState extends State<TemperatureApp> {
       backgroundColor: Colors.green[800],
     );
 
+
+
     Container tempSwitch = Container(
       padding: EdgeInsets.all(15.0),
       child: Row(
@@ -70,7 +72,7 @@ class TempState extends State<TemperatureApp> {
           Text("Fahreneit",
             style: TextStyle(
               color: Colors.white,
-              fontSize: 20,
+              fontSize: 15,
               fontWeight: FontWeight.normal,
             ),
           ),
@@ -87,7 +89,7 @@ class TempState extends State<TemperatureApp> {
           Text("Celcius",
           style: TextStyle(
             color: Colors.white,
-            fontSize: 20,
+            fontSize: 15,
             fontWeight: FontWeight.normal,
           ),
           ),
