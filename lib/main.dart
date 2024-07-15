@@ -57,7 +57,7 @@ class TempState extends State<TemperatureApp> {
         ),
       ),
       centerTitle: true,
-      backgroundColor: Colors.green[500],
+      backgroundColor: Colors.green[800],
     );
 
     Container tempSwitch = Container(
@@ -102,10 +102,25 @@ class TempState extends State<TemperatureApp> {
     );
 
     Container calcBtn = Container(
+      margin: EdgeInsets.only(top: 20.0),
+      width: 300.0, // Making it square
+      height: 50.0, // Making it square
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black45.withOpacity(0.4),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
       child: ElevatedButton(
         child: Text("Convert",
         style: TextStyle(
           fontSize: 19,
+          color: Colors.green[800],
         ),
         ),
         onPressed: () {
